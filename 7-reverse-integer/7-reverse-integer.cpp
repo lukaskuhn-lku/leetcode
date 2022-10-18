@@ -32,7 +32,6 @@ public:
             sd.pop();
         }
         
-        
         double sum = 0;
         while(sdReverse.size() != 0){
             double factor = std::pow(10, sdReverse.size()-1);
@@ -43,16 +42,11 @@ public:
             sdReverse.pop();
         }
         
-        
         if (sum >= std::pow(2, 31)){
             return 0;
         }
         
-        std::cout << sum << std::endl;
-        
         sum *= positive;
-        std::cout << sum << std::endl;
-
         return (int)sum;
     }
 };
