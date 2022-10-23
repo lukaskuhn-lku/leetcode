@@ -9,9 +9,6 @@ public:
     int searchInSubset(vector<int>& subset, int leftIndex, int rightIndex, int target){
           int middle = (leftIndex + rightIndex) / 2;
         
-          std::cout << middle << "|"<< leftIndex <<"|"<< rightIndex << std::endl;
-
-        
           if(subset[middle] == target){
               return middle;
           }
