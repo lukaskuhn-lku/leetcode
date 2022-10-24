@@ -22,9 +22,7 @@ public:
         if(!spaces){
             endLastWord = s.length();
         }
-        
-        std::cout << startLastWord << "|" << endLastWord << std::endl;
-        
+                
         return endLastWord - startLastWord;
     }
 };
