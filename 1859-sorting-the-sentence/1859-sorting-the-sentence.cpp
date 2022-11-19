@@ -13,10 +13,7 @@ public:
                 
                 std::string sub = s.substr(wordStart, wordEnd-wordStart);
                 words[index] = sub;
-                
-                std::cout << sub << std::endl;
-                                
-                std::cout << wordStart << "|" << wordEnd << std::endl;
+                                                
                 wordStart = i+1;
             }
         }
