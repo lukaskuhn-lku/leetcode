@@ -6,6 +6,7 @@ public:
         
         char c;
 
+        //Create mapping for characters
         int counter = 1;
         for(c = 'a'; c <= 'z'; c++) {
             mapping[counter] = c;
@@ -13,31 +14,24 @@ public:
             counter++;
         }
         
-        
-        
         std::string res;
         
         for(int i = s.size()-1; i>=0; i--){
             char c = s[i];
             
             if(c == '#'){
+                //Number >= 10
                 std::string number;
                 number += s[i-2];
                 number += s[i-1];
-                
-                std::cout << number << std::endl;
-                
+                                
                 int num = std::stoi(number);
                 res += mapping[num];
                 
                 i = i-2;
             }else{
-                
+                //Number < 10
                 std::string number;
-                
-                std::cout << i << std::endl;
-                std::cout << s[i] << std::endl;
-                
                 number += s[i];
                 
                 int num = std::stoi(number);
@@ -45,6 +39,7 @@ public:
             }
         }
         
+        //Reverse the String before returning
         std::reverse(res.begin(), res.end());
         return res;
     }
