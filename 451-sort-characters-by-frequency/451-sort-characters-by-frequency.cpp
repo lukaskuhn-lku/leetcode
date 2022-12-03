@@ -15,7 +15,6 @@ public:
         
         
         for(std::pair<char,int> p: values){
-            std::cout << p.first << p.second << std::endl;   
             
             for(int k = 0; k<p.second; k++){
                 res += p.first;
