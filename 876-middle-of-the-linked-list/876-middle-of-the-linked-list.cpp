@@ -19,8 +19,6 @@ public:
             counter++;
         }
         
-        std::cout << counter << std::endl;
-        
         
         for(int i = 0; i<(counter/2); i++){
             head = head->next;    
