@@ -10,32 +10,42 @@
  */
 class Solution {
 public:
-          ListNode* oddEvenList(ListNode* head) {
-             // Return the empty list if the head is null
-          if (!head)
-          {
-            return nullptr;
-          }
-
-          // Create pointers to the first and second nodes of the list
-          ListNode* odd = head;
-          ListNode* even = head->next;
-
-          // Create a pointer to the start of the even nodes
-          ListNode* even_head = even;
-
-          // Traverse the list and reorder the nodes
-          while (even && even->next)
-          {
-            odd->next = even->next;
-            odd = odd->next;
-            even->next = odd->next;
-            even = even->next;
-          }
-
-          // Append the even nodes to the end of the odd nodes
-          odd->next = even_head;
-
-          return head;
+    ListNode* oddEvenList(ListNode* head) {
+        
+        if(head == nullptr || head->next == nullptr) return head;
+        
+        ListNode* current = head;
+        ListNode* headOdd = nullptr;
+        
+        ListNode* lastEven = nullptr;
+        ListNode* lastOdd = nullptr;
+        
+        int counter = 0;
+        while(current != nullptr){
+            if(counter % 2 == 0){
+                if(lastEven == nullptr){
+                    lastEven = current;
+                }else{
+                    lastEven->next = current;
+                    lastEven = current;
+                }
+            }else{                
+                if(lastOdd == nullptr){
+                    lastOdd = current;
+                    headOdd = current;
+                }else{
+                    lastOdd->next = current;
+                    lastOdd = current;
+                }
+            }
+            
+            counter++;
+            
+            current = current->next;
+        }
+        
+        lastOdd->next = nullptr;
+        lastEven->next = headOdd;
+        return head;
     }
 };
